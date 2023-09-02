@@ -26,6 +26,15 @@
     </script>
 
 <script>
+    const links = document.querySelectorAll('a');
+
+links.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.open(link.href, '_blank', 'chrome://custom-tabs/');
+  });
+});
+    
     let deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', (e) => {
