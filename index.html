@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script>
-    // This code will open all links in a Chrome custom tab.
-    document.addEventListener("click", function(event) {
-      if (event.target.tagName === "A") {
-        event.preventDefault();
-        var url = event.target.href;
-        var customTabsIntent = new CustomTabsIntent.Builder().build();
-        customTabsIntent.launchUrl(window.chrome, url);
-      }
-    });
-  </script>
-<title>My PWA</title>
-<meta name="viewport" content="width=device-width">
-<link rel="manifest" href="manifest.json">
+    <title>My PWA</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-<ul>
-<li><a href="https://www.google.com/">Google</a></li>
-<li><a href="https://www.youtube.com/">YouTube</a></li>
-<li><a href="https://www.facebook.com/">Facebook</a></li>
-</ul>
+    <ul>
+        <li><a href="https://www.google.com/">Google</a></li>
+        <li><a href="https://www.youtube.com/">YouTube</a></li>
+        <li><a href="https://www.facebook.com/">Facebook</a></li>
+    </ul>
 </body>
-  </html>
-  
+</html>
