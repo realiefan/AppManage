@@ -1,6 +1,6 @@
 {
-"name": "My PWA",
-"short_name": "MyPWA",
+"name": "App Manage",
+"short_name": "AppManage",
 "icons": [
 {
 "src": "icon.png",
@@ -9,5 +9,7 @@
 ],
 "start_url": "index.html",
 "background_color": "#ffffff",
-"theme_color": "#ffffff"
+"theme_color": "#ffffff",
+"scope": "https://www.mypwa.com/",
+"prefer_related_applications": false
 }
