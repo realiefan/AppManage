@@ -27,18 +27,33 @@
 
 <script>
 
-    const customTabsIntent = new CustomTabsIntent.Builder()
-  .setDefaultColorScheme(CustomTabsIntent.COLOR_SCHEME_LIGHT)
-  .build();
+
+    
     
     const links = document.querySelectorAll('a');
 
 links.forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
-    window.open(link.href, '_blank', 'chrome://custom-tabs/');
+
+    // Create a CustomTabsIntent object.
+    const customTabsIntent = new CustomTabsIntent.Builder()
+      .setDefaultColorScheme(CustomTabsIntent.COLOR_SCHEME_LIGHT)
+      .build();
+
+    // Set the close button icon.
+    customTabsIntent.setCloseButtonIcon(
+      document.querySelector('img.close-icon')
+    );
+
+    // Hide the URL bar.
+    customTabsIntent.setUrlBarHidingEnabled(true);
+
+    // Open the link in a custom tab.
+    customTabsIntent.launchUrl(link.href);
   });
 });
+    
     
     let deferredPrompt;
 
