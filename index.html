@@ -8,7 +8,7 @@
 <body>
     <ul>
         <li><a href="https://www.google.com/">Google</a></li>
-        <li><a href="https://www.youtube.com/">YouTue</a></li> <!-- Fixed the typo here -->
+        <li><a href="https://www.youtube.com/">YouTube</a></li> <!-- Fixed the typo here -->
         <li><a href="https://www.facebook.com/">Facebook</a></li>
     </ul>
     <button id="installButton">Install PWA</button>
@@ -35,22 +35,7 @@
 links.forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
-
-    // Create a CustomTabsIntent object.
-    const customTabsIntent = new CustomTabsIntent.Builder()
-      .setDefaultColorScheme(CustomTabsIntent.COLOR_SCHEME_LIGHT)
-      .build();
-
-    // Set the close button icon.
-    customTabsIntent.setCloseButtonIcon(
-      document.querySelector('img.close-icon')
-    );
-
-    // Hide the URL bar.
-    customTabsIntent.setUrlBarHidingEnabled(true);
-
-    // Open the link in a custom tab.
-    customTabsIntent.launchUrl(link.href);
+    window.open(link.href, '_blank', 'chrome://custom-tabs/');
   });
 });
     
