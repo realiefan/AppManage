@@ -1,15 +1,15 @@
 {
-"name": "App Manage",
-"short_name": "AppManage",
-"icons": [
-{
-"src": "icon.png",
-"sizes": "192x192"
-}
-],
-"start_url": "index.html",
-"background_color": "#ffffff",
-"theme_color": "#ffffff",
-"scope": "https://realiefan.github.io/AppManage/index.html",
-"prefer_related_applications": false
+    "name": "My PWA",
+    "short_name": "PWA",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
 }
