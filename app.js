@@ -59,7 +59,9 @@ document.getElementById('addButton').addEventListener('click', () => {
 // Add event listener for the "Edit Links" button
 document.getElementById('editButton').addEventListener('click', () => {
     const deleteButtons = document.querySelectorAll('.delete-button');
-    deleteButtons.forEach(button => button.style.display = 'block');
+    deleteButtons.forEach(button => {
+        button.style.display = button.style.display === 'block' ? 'none' : 'block';
+    });
 });
 
 // Initial population of custom links
