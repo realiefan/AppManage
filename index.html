@@ -1,65 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>My PWA</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="manifest" href="manifest.json">
-</head>
-<body>
-    <ul>
-        <li><a href="https://www.google.com/">Google</a></li>
-        <li><a href="https://www.primal.net/">Primal</a></li> <!-- Fixed the typo here -->
-        <li><a href="https://snort.social/">Snort</a></li>
-    </ul>
-    <button id="installButton">Install PWA</button>
-
-    <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-            .then(function(registration) {
-                console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch(function(error) {
-                console.error('Service Worker registration failed:', error);
-            });
+  <title>My PWA</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    .delete-button {
+      display: none;
     }
-    </script>
+  </style>
+</head>
 
-<script>
+<body>
+  <ul id="linkList">
+    <!-- Existing links will be populated here -->
+  </ul>
 
-
-    
-    
-    const links = document.querySelectorAll('a');
-
-links.forEach((link) => {
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
-    window.open(link.href, '_blank', 'kiwi://custom-tabs/');
-  });
-});
-    
-    
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        document.getElementById('installButton').style.display = 'block';
-    });
-
-    document.getElementById('installButton').addEventListener('click', () => {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            } else {
-                console.log('User dismissed the install prompt');
-            }
-            deferredPrompt = null;
-            document.getElementById('installButton').style.display = 'none';
-        });
-    });
-</script>
+  <label for="url">URL:</label>
+  <input type="text" id="url" placeholder="Enter URL">
+  <label for="title">Title:</label>
+  <input type="text" id="title" placeholder="Enter Title">
+  <button id="addButton">Add Link</button>
+  <button id="editButton">Edit Links</button>
+  <script src="app.js"></script>
 </body>
+
 </html>
