@@ -25,5 +25,10 @@
   <button id="editButton">Edit Links</button>
   <script src="app.js"></script>
 </body>
+  <script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+  </script>
 
 </html>
