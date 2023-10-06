@@ -1,4 +1,3 @@
-// Function to add a custom link
 function addCustomLink(url, title) {
     const linkList = document.getElementById('linkList');
     const li = document.createElement('li');
@@ -7,6 +6,7 @@ function addCustomLink(url, title) {
 
     a.href = url;
     a.textContent = title;
+    a.target = '_self'; // Add this line
 
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'delete-button';
@@ -50,7 +50,7 @@ document.getElementById('addButton').addEventListener('click', () => {
         const customLinks = JSON.parse(localStorage.getItem('customLinks')) || [];
         customLinks.push({ url, title });
         saveCustomLinks(customLinks);
-        addCustomLink(url, title);
+        addCustomLink(url, title); // Add this line
         urlInput.value = '';
         titleInput.value = '';
     }
